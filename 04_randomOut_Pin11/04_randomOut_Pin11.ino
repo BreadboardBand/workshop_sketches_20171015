@@ -12,21 +12,16 @@ void setup() {
   cbi (TCCR2B, CS21);
   cbi (TCCR2B, CS22);
   sbi(DDRB,3); 
-  cbi (TIMSK0,TOIE0);    
-
-  Serial.begin(9600);
-  
+  cbi (TIMSK0,TOIE0);      
 }
 
 void loop() {
    // 一定の時間ごとにランダムな値を作り、VCOを動かす
    auto output = random(255);
-   Serial.println(output); 
    OCR2A = output;
 
    // 一定時間のウェイト(TimerOneを使ってもよい)
    volatile uint32_t wait = (uint32_t)analogRead(1) * (uint32_t)500; 
-   Serial.println(wait);
    for (uint32_t i = 0; i < wait; ++i) {
          __asm__("nop\n\t"); 
    }
