@@ -16,6 +16,5 @@ void setup() {
 }
 
 void loop() {
- OCR2A = 127; // OCR2A という変数に 0 ~ 256までの値を入れると、
-                             // pin11からPWMが出力される
+   OCR2A = analogRead(0) >> 2;
 }
