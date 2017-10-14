@@ -11,8 +11,7 @@ void setup() {
   sbi (TCCR2B, CS20);
   cbi (TCCR2B, CS21);
   cbi (TCCR2B, CS22);
-  sbi(DDRB,3); 
-  cbi (TIMSK0,TOIE0);    
+  sbi(DDRB,3);  
 }
 
 void loop() {
