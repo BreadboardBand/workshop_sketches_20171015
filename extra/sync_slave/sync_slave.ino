@@ -48,7 +48,7 @@ void setup() {
   sbi(DDRB,3);    
 
   pinMode(SYNC_IN_PIN, INPUT_PULLUP);
-  attachInterrupt(INTERRUPT_CH, RISING, syncSignalReceived); // 割り込みの登録(同期信号が来たら syncSignalReceived()が呼ばれます)
+  attachInterrupt(INTERRUPT_CH, syncSignalReceived, RISING); // 割り込みの登録(同期信号が来たら syncSignalReceived()が呼ばれます)
 }
 
 void loop() {
